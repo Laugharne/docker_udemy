@@ -105,6 +105,37 @@ The `-t` option is used to tag the image or in other words, name the image to ma
 
 We will tag the image as `img_from` and the **dot** (`.`) in the end, directs Docker to the Dockerfile stored in the **present directory**.
 
+```bash
+sudo docker build -t img_from - < Dockerfile
+```
+
+```
+[+] Building 18.5s (6/6) FINISHED                                                                                                                     docker:default
+ => [internal] load .dockerignore                                                                                                                               0.0s
+ => => transferring context: 2B                                                                                                                                 0.0s
+ => [internal] load build definition from Dockerfile                                                                                                            0.0s
+ => => transferring dockerfile: 128B                                                                                                                            0.0s
+ => [internal] load metadata for docker.io/library/ubuntu:16.04                                                                                                 1.5s
+ => [1/2] FROM docker.io/library/ubuntu:16.04@sha256:1f1a2d56de1d604801a9671f301190704c25d604a416f59e03c04f5c6ffee0d6                                          11.2s
+ => => resolve docker.io/library/ubuntu:16.04@sha256:1f1a2d56de1d604801a9671f301190704c25d604a416f59e03c04f5c6ffee0d6                                           0.0s
+ => => sha256:b51569e7c50720acf6860327847fe342a1afbe148d24c529fb81df105e3eed01 857B / 857B                                                                      0.1s
+ => => sha256:da8ef40b9ecabc2679fe2419957220c0272a965c5cf7e0269fa1aeeb8c56f2e1 528B / 528B                                                                      0.2s
+ => => sha256:1f1a2d56de1d604801a9671f301190704c25d604a416f59e03c04f5c6ffee0d6 1.42kB / 1.42kB                                                                  0.0s
+ => => sha256:a3785f78ab8547ae2710c89e627783cfa7ee7824d3468cae6835c9f4eae23ff7 1.15kB / 1.15kB                                                                  0.0s
+ => => sha256:b6f50765242581c887ff1acc2511fa2d885c52d8fb3ac8c4bba131fd86567f2e 3.36kB / 3.36kB                                                                  0.0s
+ => => sha256:58690f9b18fca6469a14da4e212c96849469f9b1be6661d2342a4bf01774aa50 46.50MB / 46.50MB                                                                9.7s
+ => => sha256:fb15d46c38dcd1ea0b1990006c3366ecd10c79d374f341687eb2cb23a2c8672e 170B / 170B                                                                      0.3s
+ => => extracting sha256:58690f9b18fca6469a14da4e212c96849469f9b1be6661d2342a4bf01774aa50                                                                       1.4s
+ => => extracting sha256:b51569e7c50720acf6860327847fe342a1afbe148d24c529fb81df105e3eed01                                                                       0.0s
+ => => extracting sha256:da8ef40b9ecabc2679fe2419957220c0272a965c5cf7e0269fa1aeeb8c56f2e1                                                                       0.0s
+ => => extracting sha256:fb15d46c38dcd1ea0b1990006c3366ecd10c79d374f341687eb2cb23a2c8672e                                                                       0.0s
+ => [2/2] RUN apt-get update -y                                                                                                                                 5.6s
+ => exporting to image                                                                                                                                          0.1s
+ => => exporting layers                                                                                                                                         0.1s
+ => => writing image sha256:663569db8d63846a644946139c819230322cd0a3c039d27d53532ed6d579bcaa                                                                    0.0s 
+ => => naming to docker.io/library/img_from                                      
+```
+
 As you can see the image is being built up step by step.
 
 Let's understand each of these steps.
